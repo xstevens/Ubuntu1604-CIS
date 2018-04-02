@@ -1,18 +1,18 @@
 ---
 - name: Check OS version and family
   fail:
-      msg: "This role can only be run against Ubuntu 16.04. {{ ansible_distribution }} {{ ansible_distribution_version }} is not supported."
+    msg: This role can only be run against Ubuntu 16.04. {{ ansible_distribution }} {{ ansible_distribution_version }} is not supported.
   when:
     - ansible_distribution == "Debian"
-    - ansible_distribution_version is version('16.04', 'eq')
+    - 'ansible_distribution_version is version(''16.04'', ''eq'')'
   tags:
     - always
 
 - include: prelim.yml
   become: yes
   tags:
-      - prelim_tasks
-      - always
+    - prelim_tasks
+    - always
 
 - include: section1.yml
   tags: section1
@@ -20,5 +20,5 @@
 - include: post.yml
   become: yes
   tags:
-      - post_tasks
-      - always
+    - post_tasks
+    - always

@@ -1,6 +1,4 @@
 ---
-# Post tasks
-
 - name: Perform APT package cleanup
   apt:
     autoremove: yes
